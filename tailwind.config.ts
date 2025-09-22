@@ -22,10 +22,12 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          hover: "hsl(var(--secondary-hover))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -38,6 +40,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          hover: "hsl(var(--accent-hover))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -46,17 +49,32 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          hover: "hsl(var(--card-hover))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // Custom shortcut app tokens
+        key: {
+          DEFAULT: "hsl(var(--key-bg))",
+          foreground: "hsl(var(--key-foreground))",
+          border: "hsl(var(--key-border))",
         },
+        search: {
+          DEFAULT: "hsl(var(--search-bg))",
+          border: "hsl(var(--search-border))",
+          focus: "hsl(var(--search-focus))",
+        },
+        category: {
+          DEFAULT: "hsl(var(--category-tag))",
+          foreground: "hsl(var(--category-tag-foreground))",
+        },
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-card': 'var(--gradient-card)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      transitionProperty: {
+        'smooth': 'var(--transition-smooth)',
+        'fast': 'var(--transition-fast)',
       },
       borderRadius: {
         lg: "var(--radius)",
