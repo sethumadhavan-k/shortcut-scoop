@@ -9,15 +9,33 @@ export interface Shortcut {
   note?: string;
 }
 
+export interface Category {
+  id: string;
+  name: string;
+  icon: string;
+  color: string;
+}
+
 export interface Application {
   id: string;
   name: string;
   description: string;
-  icon: string;
-  category: string;
-  color: string;
+  icon?: string; // Emoji fallback
+  icon_url?: string; // Image URL
+  categoryId: string;
   shortcuts: ShortcutGroup[];
 }
+
+export const categories: Category[] = [
+  { id: "editor", name: "Editor", icon: "⚡", color: "hsl(210, 100%, 60%)" },
+  { id: "browser", name: "Browser", icon: "🌐", color: "hsl(210, 100%, 55%)" },
+  { id: "design", name: "Design", icon: "🎨", color: "hsl(270, 100%, 70%)" },
+  { id: "os", name: "OS", icon: "🪟", color: "hsl(210, 100%, 50%)" },
+  { id: "developer-tools", name: "Developer Tools", icon: "💻", color: "hsl(120, 100%, 50%)" },
+  { id: "productivity", name: "Productivity", icon: "📊", color: "hsl(45, 100%, 60%)" },
+  { id: "media", name: "Media", icon: "🎵", color: "hsl(300, 100%, 60%)" },
+  { id: "communication", name: "Communication", icon: "💬", color: "hsl(200, 100%, 60%)" }
+];
 
 export const applications: Application[] = [
   {
@@ -25,8 +43,7 @@ export const applications: Application[] = [
     name: "VS Code",
     description: "Visual Studio Code shortcuts for efficient coding",
     icon: "⚡",
-    category: "Editor",
-    color: "hsl(210, 100%, 60%)",
+    categoryId: "editor",
     shortcuts: [
       {
         title: "General",
@@ -73,8 +90,7 @@ export const applications: Application[] = [
     name: "Google Chrome",
     description: "Browser shortcuts for web development and browsing",
     icon: "🌐",
-    category: "Browser",
-    color: "hsl(210, 100%, 55%)",
+    categoryId: "browser",
     shortcuts: [
       {
         title: "Tab and Window Management",
@@ -108,8 +124,7 @@ export const applications: Application[] = [
     name: "Figma",
     description: "Design shortcuts for UI/UX designers",
     icon: "🎨",
-    category: "Design",
-    color: "hsl(270, 100%, 70%)",
+    categoryId: "design",
     shortcuts: [
       {
         title: "Tools",
@@ -142,8 +157,7 @@ export const applications: Application[] = [
     name: "Windows 11",
     description: "System shortcuts for Windows operating system",
     icon: "🪟",
-    category: "OS",
-    color: "hsl(210, 100%, 50%)",
+    categoryId: "os",
     shortcuts: [
       {
         title: "System",
@@ -174,8 +188,7 @@ export const applications: Application[] = [
     name: "Terminal",
     description: "Command line shortcuts for developers",
     icon: "💻",
-    category: "Developer Tools",
-    color: "hsl(120, 100%, 50%)",
+    categoryId: "developer-tools",
     shortcuts: [
       {
         title: "Navigation",
@@ -203,4 +216,13 @@ export const applications: Application[] = [
   }
 ];
 
-export const categories = Array.from(new Set(applications.map(app => app.category)));
+// Helper function to get category by ID
+export const getCategoryById = (id: string): Category | undefined => {
+  return categories.find(cat => cat.id === id);
+};
+
+// Helper function to get default icon for category
+export const getDefaultIcon = (categoryId: string): string => {
+  const category = getCategoryById(categoryId);
+  return category?.icon || "📱";
+};
