@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { KeyCombination } from "@/components/ui/keyboard-key";
 import { AppIcon } from "@/components/AppIcon";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { applications, getCategoryById } from "@/data/shortcuts";
 import { toast } from "@/hooks/use-toast";
 
@@ -47,6 +48,7 @@ export default function ApplicationDetail() {
             </Link>
             
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               <Button
                 variant="outline"
                 size="sm"
@@ -71,7 +73,7 @@ export default function ApplicationDetail() {
           <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
             <AppIcon application={application} size="xl" className="shrink-0" />
             <div className="flex-1 min-w-0">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground mb-2 sm:mb-3">
                 {application.name}
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-3 sm:mb-4">
@@ -110,7 +112,7 @@ export default function ApplicationDetail() {
                         className="flex flex-col sm:flex-row sm:items-center justify-between py-3 px-3 sm:px-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors group gap-2 sm:gap-3"
                       >
                         <div className="flex-1 min-w-0">
-                          <p className="text-card-foreground font-medium mb-1 text-sm sm:text-base">
+                          <p className="text-card-foreground font-light mb-1 text-sm sm:text-base">
                             {shortcut.description}
                           </p>
                           {shortcut.note && (
@@ -125,7 +127,7 @@ export default function ApplicationDetail() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
+                            className="opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity shrink-0 hover:bg-primary hover:text-primary-foreground"
                             onClick={() => copyShortcut(shortcut.keys, shortcut.description)}
                           >
                             <Copy className="w-3 h-3 sm:w-4 sm:h-4" />

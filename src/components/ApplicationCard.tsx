@@ -23,7 +23,7 @@ export function ApplicationCard({ application }: ApplicationCardProps) {
           <div className="flex items-start gap-3 sm:gap-4 mb-4">
             <AppIcon application={application} size="lg" className="shrink-0" />
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-base sm:text-lg text-card-foreground mb-1 group-hover:text-primary transition-colors">
+              <h3 className="font-light text-base sm:text-lg text-card-foreground mb-1 group-hover:text-primary transition-colors">
                 {application.name}
               </h3>
               <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">

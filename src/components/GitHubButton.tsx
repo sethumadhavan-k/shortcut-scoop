@@ -32,12 +32,12 @@ export function GitHubButton() {
       <Button
         variant="outline"
         size="sm"
-        className="gap-2 bg-background/50 backdrop-blur-sm border-border hover:bg-background/80"
+        className="gap-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
         onClick={() => window.open(repoUrl, '_blank')}
       >
         <Github className="w-4 h-4" />
-        <span className="hidden sm:inline">Star on GitHub</span>
-        <span className="sm:hidden">Star</span>
+        <span className="hidden sm:inline">GitHub</span>
+        <span className="sm:hidden">GitHub</span>
       </Button>
       
       {!stats.loading && (

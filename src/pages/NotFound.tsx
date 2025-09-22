@@ -15,7 +15,7 @@ const NotFound = () => {
       <div className="text-center space-y-6 max-w-md mx-auto px-6">
         <div className="text-8xl">🔍</div>
         <div className="space-y-3">
-          <h1 className="text-4xl font-bold text-foreground">404</h1>
+          <h1 className="text-4xl font-light text-foreground">404</h1>
           <p className="text-xl text-muted-foreground">
             Oops! This shortcut doesn't exist
           </p>
